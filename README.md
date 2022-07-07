@@ -1,2 +1,3 @@
 # Robot-Framework-AT
-Testing Reddit site with Robot Framework.
+Testing site Reddit.com with Robot Framework.
+Selenium2library
