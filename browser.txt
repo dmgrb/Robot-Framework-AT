@@ -20,8 +20,8 @@ Delete comment from thread
     Delete comment
 
 *** Variables ***
-${login}                 Tester4774
-${password}              DEcJ7whE
+${login}                 Your Login
+${password}              Your Password
 ${key}                   Football
 ${ClassName}             public-DraftStyleDefault-block public-DraftStyleDefault-ltr
 ${Comment}               Fotball is cool
