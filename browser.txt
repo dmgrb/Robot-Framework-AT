@@ -1,0 +1,67 @@
+*** Settings ***
+Documentation     Reddit add comments
+Library           Selenium2Library
+Library           BuiltIn
+
+
+
+*** Test Cases ***
+Open browser and go to Reddit.com
+    Go to Reddit
+Log in Reddit
+    Log in
+Enter keyword for search
+    Enter keyword
+Search thread for comment
+    Search thread
+Add comment for thread
+    Add Comment
+Delete comment from thread
+    Delete comment
+
+*** Variables ***
+${login}                 Tester4774
+${password}              DEcJ7whE
+${key}                   Football
+${ClassName}             public-DraftStyleDefault-block public-DraftStyleDefault-ltr
+${Comment}               Fotball is cool
+${Dropbutton}            _2pFdCpgBihIaYh9DSMWBIu _1VR6DV38j4rMT5OMeU4gJZ uMPgOFYlCc5uvpa2Lbteu
+${Deletebutton}          _10K5i7NW6qcm-UoCtpB3aK _3LwUIE7yX7CZQKmD2L87vf _2DO72U0b_6CUw3msKGrnnT uoWjzSc1sqcAD_cLV6MWa _1oYEKCssGFjqxQ9jJMNj5G
+*** Keywords ***
+Go to Reddit
+    Open Browser                                https://google.com    chrome
+    Maximize Browser Window
+    Go To                                       https://reddit.com/login
+
+Log in
+    Input Text                                  name=username                                      ${login}
+    Input Password                              name=password                                      ${password}
+    Press Keys                                  name=password                                      ENTER
+
+
+Enter keyword
+    Wait Until Element Is Enabled                id=header-search-bar                              timeout=5
+    Input Text                                   id=header-search-bar                              ${key}
+    Press Keys                                   id=header-search-bar                              ENTER
+    Sleep                                        14 s
+
+ Search thread
+    Click Link                                   link=Comments
+    Sleep                                        6 s
+    Click Link                                   link=Go to thread
+
+
+ Add Comment
+    Wait Until Element Is Enabled                xpath:(//div[@class='${ClassName}'])             timeout=5
+    Input Text                                   xpath:(//div[@class='${ClassName}'])             ${Comment}
+    Click Button                                 Comment
+    Sleep                                        3 s
+
+
+ Delete Comment
+    Click Button                                xpath:(//*[@class='${Dropbutton}'])
+    Set Focus To Element                        xpath:(//*[@class='${Deletebutton}'])
+    Click Button                                Delete comment
+    Sleep                                       3 s
+    Click Button                                Delete
+

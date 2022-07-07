@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 5.0.1 (Python 3.8.0 on win32)" generated="20220706 03:04:52.925" rpa="false" schemaversion="3">
+<suite id="s1" name="Browser" source="C:\Users\admin\Desktop\Robot_Framework_ reddit\browser.txt">
+<test id="s1-t1" name="Open browser and go to Reddit.com" line="9">
+<kw name="Go to Reddit">
+<kw name="Open Browser" library="Selenium2Library">
+<arg>https://google.com</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20220706 03:04:53.344" level="INFO">Opening browser 'chrome' to base url 'https://google.com'.</msg>
+<status status="PASS" starttime="20220706 03:04:53.343" endtime="20220706 03:04:56.590"/>
+</kw>
+<kw name="Maximize Browser Window" library="Selenium2Library">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20220706 03:04:56.590" endtime="20220706 03:04:56.707"/>
+</kw>
+<kw name="Go To" library="Selenium2Library">
+<arg>https://reddit.com/login</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20220706 03:04:56.708" level="INFO">Opening url 'https://reddit.com/login'</msg>
+<status status="PASS" starttime="20220706 03:04:56.708" endtime="20220706 03:04:58.626"/>
+</kw>
+<status status="PASS" starttime="20220706 03:04:53.343" endtime="20220706 03:04:58.627"/>
+</kw>
+<status status="PASS" starttime="20220706 03:04:53.341" endtime="20220706 03:04:58.628"/>
+</test>
+<test id="s1-t2" name="Log in Reddit" line="11">
+<kw name="Log in">
+<kw name="Input Text" library="Selenium2Library">
+<arg>name=username</arg>
+<arg>${login}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220706 03:04:58.655" level="INFO">Typing text 'Tester4774' into text field 'name=username'.</msg>
+<status status="PASS" starttime="20220706 03:04:58.654" endtime="20220706 03:04:58.817"/>
+</kw>
+<kw name="Input Password" library="Selenium2Library">
+<arg>name=password</arg>
+<arg>${password}</arg>
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<msg timestamp="20220706 03:04:58.818" level="INFO">Typing password into text field 'name=password'.</msg>
+<msg timestamp="20220706 03:04:58.891" level="INFO">Temporally setting log level to: NONE</msg>
+<msg timestamp="20220706 03:04:58.977" level="INFO">Log level changed from NONE to INFO.</msg>
+<status status="PASS" starttime="20220706 03:04:58.817" endtime="20220706 03:04:58.977"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>name=password</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20220706 03:04:58.979" level="INFO">Sending key(s) ('ENTER',) to name=password element.</msg>
+<msg timestamp="20220706 03:04:59.268" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20220706 03:04:59.268" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20220706 03:04:58.977" endtime="20220706 03:04:59.283"/>
+</kw>
+<status status="PASS" starttime="20220706 03:04:58.653" endtime="20220706 03:04:59.284"/>
+</kw>
+<status status="PASS" starttime="20220706 03:04:58.652" endtime="20220706 03:04:59.285"/>
+</test>
+<test id="s1-t3" name="Enter keyword for search" line="13">
+<kw name="Enter keyword">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>id=header-search-bar</arg>
+<arg>timeout=5</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220706 03:04:59.288" endtime="20220706 03:05:06.852"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>id=header-search-bar</arg>
+<arg>${key}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220706 03:05:06.855" level="INFO">Typing text 'Football' into text field 'id=header-search-bar'.</msg>
+<status status="PASS" starttime="20220706 03:05:06.853" endtime="20220706 03:05:07.638"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>id=header-search-bar</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20220706 03:05:07.640" level="INFO">Sending key(s) ('ENTER',) to id=header-search-bar element.</msg>
+<msg timestamp="20220706 03:05:08.293" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20220706 03:05:08.293" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20220706 03:05:07.638" endtime="20220706 03:05:08.533"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>14 s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220706 03:05:22.535" level="INFO">Slept 14 seconds</msg>
+<status status="PASS" starttime="20220706 03:05:08.534" endtime="20220706 03:05:22.535"/>
+</kw>
+<status status="PASS" starttime="20220706 03:04:59.288" endtime="20220706 03:05:22.535"/>
+</kw>
+<status status="PASS" starttime="20220706 03:04:59.287" endtime="20220706 03:05:22.536"/>
+</test>
+<test id="s1-t4" name="Search thread for comment" line="15">
+<kw name=" Search thread">
+<kw name="Click Link" library="Selenium2Library">
+<arg>link=Comments</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20220706 03:05:22.542" level="INFO">Clicking link 'link=Comments'.</msg>
+<status status="PASS" starttime="20220706 03:05:22.541" endtime="20220706 03:05:23.160"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>6 s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220706 03:05:29.162" level="INFO">Slept 6 seconds</msg>
+<status status="PASS" starttime="20220706 03:05:23.161" endtime="20220706 03:05:29.162"/>
+</kw>
+<kw name="Click Link" library="Selenium2Library">
+<arg>link=Go to thread</arg>
+<doc>Clicks a link identified by ``locator``.</doc>
+<msg timestamp="20220706 03:05:29.163" level="INFO">Clicking link 'link=Go to thread'.</msg>
+<status status="PASS" starttime="20220706 03:05:29.162" endtime="20220706 03:05:30.258"/>
+</kw>
+<status status="PASS" starttime="20220706 03:05:22.540" endtime="20220706 03:05:30.259"/>
+</kw>
+<status status="PASS" starttime="20220706 03:05:22.538" endtime="20220706 03:05:30.260"/>
+</test>
+<test id="s1-t5" name="Add comment for thread" line="17">
+<kw name=" Add Comment">
+<kw name="Wait Until Element Is Enabled" library="Selenium2Library">
+<arg>xpath:(//div[@class='${ClassName}'])</arg>
+<arg>timeout=5</arg>
+<doc>Waits until the element ``locator`` is enabled.</doc>
+<status status="PASS" starttime="20220706 03:05:30.265" endtime="20220706 03:05:34.172"/>
+</kw>
+<kw name="Press Keys" library="Selenium2Library">
+<arg>xpath:(//div[@class='${ClassName}'])</arg>
+<arg>//31</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20220706 03:05:34.174" level="INFO">Sending key(s) ('//31',) to xpath:(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr']) element.</msg>
+<msg timestamp="20220706 03:05:35.382" level="INFO">Sending keys //31</msg>
+<status status="PASS" starttime="20220706 03:05:34.173" endtime="20220706 03:05:36.716"/>
+</kw>
+<kw name="Input Text" library="Selenium2Library">
+<arg>xpath:(//div[@class='${ClassName}'])</arg>
+<arg>${Comment}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220706 03:05:36.718" level="INFO">Typing text 'Fotball is cool' into text field 'xpath:(//div[@class='public-DraftStyleDefault-block public-DraftStyleDefault-ltr'])'.</msg>
+<status status="PASS" starttime="20220706 03:05:36.717" endtime="20220706 03:05:38.919"/>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<arg>Comment</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220706 03:05:38.920" level="INFO">Clicking button 'Comment'.</msg>
+<status status="PASS" starttime="20220706 03:05:38.920" endtime="20220706 03:05:39.510"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3 s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20220706 03:05:42.512" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20220706 03:05:39.511" endtime="20220706 03:05:42.512"/>
+</kw>
+<status status="PASS" starttime="20220706 03:05:30.264" endtime="20220706 03:05:42.512"/>
+</kw>
+<status status="PASS" starttime="20220706 03:05:30.262" endtime="20220706 03:05:42.513"/>
+</test>
+<test id="s1-t6" name="Delete comment from thread" line="19">
+<kw name=" Delete Comment">
+<kw name="Click Button" library="Selenium2Library">
+<arg>xpath:(//*[@class='${Dropbutton}'])</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220706 03:05:42.517" level="INFO">Clicking button 'xpath:(//*[@class='_2pFdCpgBihIaYh9DSMWBIu _1VR6DV38j4rMT5OMeU4gJZ uMPgOFYlCc5uvpa2Lbteu'])'.</msg>
+<status status="PASS" starttime="20220706 03:05:42.517" endtime="20220706 03:05:48.475"/>
+</kw>
+<kw name="Set Focus To Element" library="Selenium2Library">
+<arg>xpath:(//*[@class='${Deletebutton}'])</arg>
+<doc>Sets the focus to the element identified by ``locator``.</doc>
+<status status="PASS" starttime="20220706 03:05:48.476" endtime="20220706 03:05:48.545"/>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<arg>Delete comment</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20220706 03:05:48.546" level="INFO">Clicking button 'Delete comment'.</msg>
+<msg timestamp="20220706 03:05:49.513" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-15.png"&gt;&lt;img src="selenium-screenshot-15.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20220706 03:05:49.516" level="FAIL">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=103.0.5060.66)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00466463+2188387]
+	Ordinal0 [0x003FE461+1762401]
+	Ordinal0 [0x00313C40+801856]
+	Ordinal0 [0x00342873+993395]
+	Ordinal0 [0x00338613+951827]
+	Ordinal0 [0x0035C7DC+1099740]
+	Ordinal0 [0x00337FF4+950260]
+	Ordinal0 [0x0035C9F4+1100276]
+	Ordinal0 [0x0036CC22+1166370]
+	Ordinal0 [0x0035C5F6+1099254]
+	Ordinal0 [0x00336BE0+945120]
+	Ordinal0 [0x00337AD6+948950]
+	GetHandleVerifier [0x007071F2+2712546]
+	GetHandleVerifier [0x006F886D+2652765]
+	GetHandleVerifier [0x004F002A+520730]
+	GetHandleVerifier [0x004EEE06+516086]
+	Ordinal0 [0x0040468B+1787531]
+	Ordinal0 [0x00408E88+1805960]
+	Ordinal0 [0x00408F75+1806197]
+	Ordinal0 [0x00411DF1+1842673]
+	BaseThreadInitThunk [0x76FF8624+14]
+	RtlInitializeExceptionChain [0x773FBF39+133]
+	RtlInitializeExceptionChain [0x773FBF0C+88]
+</msg>
+<status status="FAIL" starttime="20220706 03:05:48.545" endtime="20220706 03:05:49.524"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3 s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20220706 03:05:49.526" endtime="20220706 03:05:49.526"/>
+</kw>
+<kw name="Click Button" library="Selenium2Library">
+<arg>Delete</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20220706 03:05:49.526" endtime="20220706 03:05:49.526"/>
+</kw>
+<status status="FAIL" starttime="20220706 03:05:42.516" endtime="20220706 03:05:49.528"/>
+</kw>
+<status status="FAIL" starttime="20220706 03:05:42.515" endtime="20220706 03:05:49.529">ElementNotInteractableException: Message: element not interactable
+  (Session info: chrome=103.0.5060.66)
+Stacktrace:
+Backtrace:
+	Ordinal0 [0x00466463+2188387]
+	Ordinal0 [0x003FE461+1762401]
+	Ordinal0 [0x00313C40+801856]
+	Ordinal0 [0x00342873+993395]
+	Ordinal0 [0x00338613+951827]
+	Ordinal0 [0x0035C7DC+1099740]
+	Ordinal0 [0x00337FF4+950260]
+	Ordinal0 [0x0035C9F4+1100276]
+	Ordinal0 [0x0036CC22+1166370]
+	Ordinal0 [0x0035C5F6+1099254]
+	Ordinal0 [0x00336BE0+945120]
+	Ordinal0 [0x00337AD6+948950]
+	GetHandleVerifier [0x007071F2+2712546]
+	GetHandleVerifier [0x006F886D+2652765]
+	GetHandleVerifier [0x004F002A+520730]
+	GetHandleVerifier [0x004EEE06+516086]
+	Ordinal0 [0x0040468B+1787531]
+	Ordinal0 [0x00408E88+1805960]
+	Ordinal0 [0x00408F75+1806197]
+	Ordinal0 [0x00411DF1+1842673]
+	BaseThreadInitThunk [0x76FF8624+14]
+	RtlInitializeExceptionChain [0x773FBF39+133]
+	RtlInitializeExceptionChain [0x773FBF0C+88]
+</status>
+</test>
+<doc>Reddit add comments</doc>
+<status status="FAIL" starttime="20220706 03:04:52.929" endtime="20220706 03:05:49.550"/>
+</suite>
+<statistics>
+<total>
+<stat pass="5" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="5" fail="1" skip="0" id="s1" name="Browser">Browser</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
